@@ -9,3 +9,16 @@ models:
           model_columns: ['customer_id', 'order_date']
           reference_model: ref('dim_customers')
           reference_columns: ['customer_id', 'effective_date']
+
+------------------------------------------------------------
+
+version: 2
+
+models:
+  - name: orders
+    tests:
+      - test_references_multi_column_with_threshold:
+          model_columns: ['customer_id', 'order_date']
+          reference_model: ref('dim_customers')
+          reference_columns: ['customer_id', 'effective_date']
+          threshold: 0.01  # 1% mismatch allowed
