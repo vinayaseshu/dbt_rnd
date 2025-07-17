@@ -1,0 +1,11 @@
+In the schema of your model (e.g. models/orders/schema.yml):
+
+version: 2
+
+models:
+  - name: orders
+    tests:
+      - test_references_multi_column:
+          model_columns: ['customer_id', 'order_date']
+          reference_model: ref('dim_customers')
+          reference_columns: ['customer_id', 'effective_date']
