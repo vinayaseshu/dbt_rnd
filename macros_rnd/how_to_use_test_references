@@ -22,3 +22,12 @@ models:
           reference_model: ref('dim_customers')
           reference_columns: ['customer_id', 'effective_date']
           threshold: 0.01  # 1% mismatch allowed
+
+
+models:
+  - name: products
+    columns:
+      - name: price
+        tests:
+          - min_value:
+              min_val: 0.01
